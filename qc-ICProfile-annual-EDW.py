@@ -734,36 +734,35 @@ def read_icp(dirname,excel):
 
 
             # figs = [] #in this list we will hold all the figures
-            # print('Timetic=',Timetic*1e-6,df['TIMETIC']) # duration of the measurement
-            # print('Backrate',df)
+            # print('Timetic=',Timetic*1e-6,df['TIMETIC'][0],df['TIMETIC'][1],df['TIMETIC'][2],df['TIMETIC'][3]) # duration of the measurement
 
 
 
             for column in df.columns[5:68]: #this section records the X axis (-)
                 CorrCountXvect.append((df[column][3] - Timetic*df[column][0])*df[column][1]/gain)#the corrected data for leakage = Timetic*Bias*Calibration/Gain
+                # CorrCountXvect.append((df[column][3])*df[column][1])#the corrected data for leakage = Timetic*Bias*Calibration/Gain
                 central_value_Xvect = CorrCountXvect[len(CorrCountXvect) // 2]
-                #CorrCountXvect.append((df[column][3])*df[column][1])#the corrected data for leakage = Timetic*Bias*Calibration/Gain
                 BiasX.append(df[column][0]) # already used in the formula above but saving them just in case
                 CalibX.append(df[column][1])
                 RawCountXvect.append(df[column][3])
 
             for column in df.columns[68:133]: #this section records the Y axis (|)
                 CorrCountYvect.append((df[column][3] - Timetic*df[column][0])*df[column][1]/gain)
-                #CorrCountYvect.append((df[column][3])*df[column][1])
+                # CorrCountYvect.append((df[column][3])*df[column][1])
                 BiasY.append(df[column][0]) # already used in the formula above but saving them just in case
                 CalibY.append(df[column][1])
                 RawCountYvect.append(df[column][3])
 
             for column in df.columns[133:196]: #this section records the D1 axis  (/)
                 CorrCountPDvect.append((df[column][3] - Timetic*df[column][0])*df[column][1]/gain)
-                #CorrCountPDvect.append((df[column][3])*df[column][1])
+                # CorrCountPDvect.append((df[column][3])*df[column][1])
                 BiasPD.append(df[column][0]) # already used in the formula above but saving them just in case
                 CalibPD.append(df[column][1])
                 RawCountPDvect.append(df[column][3])
 
             for column in df.columns[196:259]: #this section records the D2 axis  (\)
                 CorrCountNDvect.append((df[column][3] - Timetic*df[column][0])*df[column][1]/gain)
-                #CorrCountNDvect.append((df[column][3])*df[column][1])
+                # CorrCountNDvect.append((df[column][3])*df[column][1])
                 BiasND.append(df[column][0]) # already used in the formula above but saving them just in case
                 CalibND.append(df[column][1])
                 RawCountNDvect.append(df[column][3])
