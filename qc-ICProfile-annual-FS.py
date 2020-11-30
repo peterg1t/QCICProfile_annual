@@ -715,9 +715,10 @@ def int_detc_indx(CorrCounts,FRGN):
     print("lFRGN","rFRGN")
     print(lFRGN,rFRGN)
 
-    # lf = int(round(lFRGN)) + 1
+    # lf = int(round(lFRGN)) + 1cd
     # rf = int(round(rFRGN))
-    lf = int(lFRGN) + 1
+    # lf = int(lFRGN)+1 # Although this is in the manual the +1 could be because of use of non-zero array start.
+    lf = int(lFRGN)
     rf = int(rFRGN)
 
     return lf, rf, lFRGN, rFRGN, CM
