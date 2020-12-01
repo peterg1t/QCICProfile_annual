@@ -925,6 +925,24 @@ def read_icp(dirname,excel):
                 # print(i, v)
                 Yi.append(i)
 
+
+
+
+
+            # here we calculate the symmetry with the CAX Point Difference Symmetry
+
+
+            for i in range(0,len(CorrCountXvect)):
+                symmetry_X = (CorrCountXvect[i] - CorrCountXvect[len(CorrCountXvect)-i])/CorrCountXvect[len(CorrCountXvect)//2]*100
+                print(len(CorrCountXvect)//2, i, len(CorrCountXvect)-i)
+                print('symmetry_X=',symmetry_X)
+
+            exit(0)
+
+
+
+
+
             # here we calculate the symmetry (This code is equivalent to SYMA - see documentation)
             # for the X
             area_R_X = area_calc(CorrCountXvect[int(CMX):xri + 1], Xi[int(CMX):xri + 1])
